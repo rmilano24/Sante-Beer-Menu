@@ -20,4 +20,8 @@ const Root = () => {
   )
 }
 
+StorePicker.contextTypes = {
+  router:React.PropTypes.object
+}
+
 render(<Root/>, document.querySelector('#main'));
