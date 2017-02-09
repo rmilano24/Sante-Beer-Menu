@@ -1,5 +1,5 @@
 import React from 'react';
-import { getFunName } from '../helpers'
+import { getFunName } from '../helpers';
 
 class StorePicker extends React.Component {
   // constructor() {
@@ -7,11 +7,13 @@ class StorePicker extends React.Component {
   //   this.goToStore = this.goToStore.bind(this);
   // }
   goToStore(event) {
-  event.preventDefault();
-  console.log('You Changed the URL');
-  // first grab the text from the box
-  console.log(this.storeInput.value);
-  // second we're going to transition from / to /store/:storeid
+    event.preventDefault();
+    console.log('You Changed the URL');
+    // first grab the text from the box
+    const storeId = this.storeInput.value;
+    console.log(`Going to ${storeId}`)
+    // second we're going to transition from / to /store/:storeid
+    this.context.router.transitionTo(`/store/${storeId}`);
   }
 
 
@@ -25,6 +27,10 @@ class StorePicker extends React.Component {
       </form>
     )
   }
+}
+
+StorePicker.contextTypes = {
+  router: React.PropTypes.object
 }
 
 export default StorePicker;
